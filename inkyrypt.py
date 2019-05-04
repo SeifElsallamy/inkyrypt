@@ -16,12 +16,13 @@ k = sha512(p).hexdigest()
 
 #Hashing the password with SHA512
 if e_or_d == 'e':
+    c = c + sha512(c).hexdigest()
+    div = len(c) / len(k)
+    k=div*k+k
+    k=k[:len(c)]
+    wr=xor(c,k)
     with open(x,"wb") as f:
-        c = c + sha512(c).hexdigest()
-        div = len(c) / len(k)
-        k=div*k+k
-        k=k[:len(c)]
-        f.write(xor(c,k))
+        f.write(wr)
         print "Encrypted successfully!"
     
 if e_or_d == 'd':
