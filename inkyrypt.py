@@ -6,7 +6,7 @@ def xor(s1,s2):
 e_or_d = raw_input("Write 'e' for Encrypt or 'd' Decrypt  :\n")
  
 x=raw_input("Enter file path:\n").strip()
-#x=x[:-1].replace("'","").replace("\\","/")
+x=x[:-1].replace("'","").replace("\\","/")
 with open(x,"rb") as f:
     c = f.read()
     
